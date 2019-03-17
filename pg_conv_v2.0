@@ -27,7 +27,7 @@ for i in $( awk '{printf "%s\n", $1}' result_nums.txt )
      sum=$(echo $sum+$i | bc )
      ((count++))
    done
-   default_tuning=$(echo 'Average number of transactions processed from 10 iterations ' && echo "scale=2; $sum / $count" | bc)
+   default_tuning=$(echo 'Average number of transactions processed from 15 iterations ' && echo "scale=2; $sum / $count" | bc)
 
 echo ' '
 echo '##### Clean Up #####'
@@ -119,7 +119,7 @@ for i in $( awk '{ printf "%s\n", $1 }' result_nums2.txt )
      sum2=$(echo $sum2+$i | bc )
      ((count2++))
    done
-   neds_tuning=$(echo 'Average number of transactions processed from 10 iterations '&& echo "scale=2; $sum2 / $count2" | bc)
+   neds_tuning=$(echo 'Average number of transactions processed from 15 iterations '&& echo "scale=2; $sum2 / $count2" | bc)
 
 echo '##### Cleaning up #####'
 echo ' '
@@ -195,7 +195,7 @@ for i in $( awk '{ printf "%s\n", $1 }' result_nums2.txt )
 	        sum2=$(echo $sum2+$i | bc )
      		((count2++))
        done
-pg_bench=$(echo 'Average number of transactions processed from 10 iterations '&& echo "scale=2; $sum2 / $count2" | bc)
+pg_bench=$(echo 'Average number of transactions processed from 15 iterations '&& echo "scale=2; $sum2 / $count2" | bc)
 echo '##### Cleaning up ##### '
 echo ' '
 
