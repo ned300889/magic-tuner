@@ -7,7 +7,7 @@ sudo -u postgres createdb unbench_the_kench  >/dev/null 2>&1
 
 echo ' '
 echo '##### Filling table with junk #####'
-sudo -u postgres pgbench -i  -s 1 -p 5432 -d unbench_the_kench
+sudo -u postgres pgbench -i  -s 10 -p 5432 -d unbench_the_kench
 
 
 
@@ -15,7 +15,7 @@ sudo -u postgres pgbench -i  -s 1 -p 5432 -d unbench_the_kench
 echo '###### Running benchmark against default tuning  #######'
 for i in {1..15}
 do
-sudo -u postgres pgbench unbench_the_kench -c 1 -T 3 -S -n >> result1.txt 
+sudo -u postgres pgbench unbench_the_kench -c 100 -T 3 -S -n >> result1.txt 
 done
 grep -i processed result1.txt | awk '{printf "%s\n", $6}' > result_nums.txt
 
@@ -103,7 +103,7 @@ echo ' '
 sudo -u postgres createdb  unbench_the_kench >/dev/null 2>&1
 echo '##### Filling Database with junk ######'
 echo ' '
-sudo -u postgres pgbench -i -s 1  -p 5432 -d unbench_the_kench 
+sudo -u postgres pgbench -i -s 10  -p 5432 -d unbench_the_kench 
 
 echo '##### Running benchmark against magic-tuner #####'
 for i in {1..15}
